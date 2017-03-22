@@ -14,25 +14,7 @@ $site-colors: (
   'background': $whitesmoke
 );
 
-// e.g. color: site-color('accent');
-@function site-color($key: 'primary') {
-  @return map-get($site-colors, $key);
-}
-
 $site-opacity: (
   'light': 0.4,
   'dark': 0.8
 );
-
-// e.g. site-color-opacity('primary', 'light');
-@function site-color-opacity($name: 'primary', $opacity: 0) {
-  $color: site-color($name);
-
-  // Get the named opacity level, if it exists
-  @if map-key-exists($site-opacity, $opacity) {
-    $opacity: map-get($site-opacity, $opacity);
-  }
-
-  // Use rgba() to manipulate the color's alpha level
-  @return rgba($color, $opacity);
-}

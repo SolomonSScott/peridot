@@ -1,0 +1,17 @@
+// e.g. color: site-color('accent');
+@function site-color($key: 'primary') {
+  @return map-get($site-colors, $key);
+}
+
+// e.g. site-color-opacity('primary', 'light');
+@function site-color-opacity($name: 'primary', $opacity: 0) {
+  $color: site-color($name);
+
+  // Get the named opacity level, if it exists
+  @if map-key-exists($site-opacity, $opacity) {
+    $opacity: map-get($site-opacity, $opacity);
+  }
+
+  // Use rgba() to manipulate the color's alpha level
+  @return rgba($color, $opacity);
+}

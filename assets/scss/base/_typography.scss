@@ -1,0 +1,22 @@
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.25;
+
+$small-text: 0.75rem;
+$body-text: $base-font-size;
+$large-text: 1.333rem;
+$heading-text: 1.777rem;
+
+
+$type-scale: (
+  -1: $small-text,
+  0: $body-text,
+  1: $large-text,
+  2: $heading-text
+);
+
+$line-heights: (
+  -1: $base-line-height,
+  0: $base-line-height,
+  1: $base-line-height * 2,
+  2: $base-line-height * 2
+);
