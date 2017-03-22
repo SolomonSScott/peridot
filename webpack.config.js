@@ -1,9 +1,15 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var inProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: './assets/main.js',
+  entry: {
+    app: [
+        './assets/js/main.js',
+        './assets/scss/app.scss'
+      ]
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].js'
@@ -11,13 +17,25 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader", "sass-loader"]
+        })
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       }
     ]
   },
-  plugins: []
+  plugins: [
+    new ExtractTextPlugin("[name].css"),
+    new webpack.LoaderOptionsPlugin({
+      minimize: inProduction
+    })
+  ]
 }
 
 if ( inProduction ) {
