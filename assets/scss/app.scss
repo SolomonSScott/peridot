@@ -1,5 +1,17 @@
-$red: salmon;
+// Global variables, typography, and reset
+@import "base/glob";
 
-body {
-  background-color: $red;
-}
+// Global mixins, functions, helper selectors
+@import "utils/glob";
+
+// 3rd-party styles/libraries
+@import "vendor/glob";
+
+// Styling for larger layout components; e.g. nav, header, footer, etc
+@import "layouts/glob";
+
+// Page-specific styling
+@import "pages/glob";
+
+// Self-contained components; e.g. buttons, call outs, etc
+@import "components/glob";

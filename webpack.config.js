@@ -24,6 +24,13 @@ module.exports = {
         })
       },
       {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: "file-loader",
+        options: {
+          name: 'images/[name].[ext]'
+        }
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"

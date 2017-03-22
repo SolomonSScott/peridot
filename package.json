@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Solomon Scott",
   "license": "MIT",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "dev": "webpack --watch"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
@@ -12,6 +16,7 @@
     "babel-preset-es2016": "^6.22.0",
     "css-loader": "^0.27.3",
     "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
     "node-sass": "^4.5.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.0",
